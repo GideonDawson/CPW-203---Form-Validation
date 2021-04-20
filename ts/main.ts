@@ -5,6 +5,7 @@ window.onload = function(){
 }
 
 function main():void{
+    resetErrorMessages();
     isTextPresent("first-name","First name is required");
     isTextPresent("last-name", "Last name is required"); 
 }
@@ -34,6 +35,21 @@ function isEmailValid(email:string){
     if(!email.includes("@")){
         return false; 
         
+    }
+}
+
+// Resets all spans back to the default text
+function resetErrorMessages():void{
+    let allErrorSpans = document.querySelectorAll("form span");
+    for(let i = 0; i < allErrorSpans.length; i++){
+        let currentSpan = <HTMLElement> allErrorSpans[i];
+        
+        if(currentSpan.hasAttribute("data-required")){
+            currentSpan.innerText = "*";
+        }
+        else{
+            currentSpan.innerText = "";
+        }
     }
 }
 

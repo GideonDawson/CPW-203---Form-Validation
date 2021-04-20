@@ -3,6 +3,7 @@ window.onload = function () {
     formBtn.onclick = main;
 };
 function main() {
+    resetErrorMessages();
     isTextPresent("first-name", "First name is required");
     isTextPresent("last-name", "Last name is required");
 }
@@ -19,5 +20,17 @@ function isTextPresent(id, errMsg) {
 function isEmailValid(email) {
     if (!email.includes("@")) {
         return false;
+    }
+}
+function resetErrorMessages() {
+    let allErrorSpans = document.querySelectorAll("form span");
+    for (let i = 0; i < allErrorSpans.length; i++) {
+        let currentSpan = allErrorSpans[i];
+        if (currentSpan.hasAttribute("data-required")) {
+            currentSpan.innerText = "*";
+        }
+        else {
+            currentSpan.innerText = "";
+        }
     }
 }
