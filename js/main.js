@@ -1,5 +1,5 @@
 window.onload = function () {
-    var formBtn = document.querySelector("form > button");
+    let formBtn = document.querySelector("form > button");
     formBtn.onclick = main;
 };
 function main() {
@@ -7,12 +7,17 @@ function main() {
     isTextPresent("last-name", "Last name is required");
 }
 function isTextPresent(id, errMsg) {
-    var txtBox = document.getElementById(id);
-    var textBoxValue = txtBox.value;
+    let txtBox = document.getElementById(id);
+    let textBoxValue = txtBox.value;
     if (textBoxValue == "") {
-        var errSpan = txtBox.nextElementSibling;
+        let errSpan = txtBox.nextElementSibling;
         errSpan.innerText = errMsg;
         return false;
     }
     return true;
+}
+function isEmailValid(email) {
+    if (!email.includes("@")) {
+        return false;
+    }
 }
