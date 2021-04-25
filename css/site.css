@@ -1,6 +1,10 @@
 form span{
     color: red; 
 }
+body{
+    margin-left:5%;
+    margin-right:5%; 
+}
 
 input[type=text]{
     margin-bottom:1em; 
@@ -11,7 +15,19 @@ form label{
     width:50%; 
     text-align:right; 
     margin-right: 2em;
+}
 
+button{
+    padding: .75em; 
+    border-radius: .4em; 
+    background-color: rgb(40, 197, 40); 
+    border: 1px solid black; 
+    cursor: pointer; 
+}
+
+botton:hover{
+    background-color: rgb(106, 201, 233); 
+    
 }
 
 form button{
@@ -28,4 +44,12 @@ form button{
         margin-left: 0%; 
     }
     
+}
+
+h1{
+    text-align:center;
+}
+
+h1, form label, form button{
+    font-family: 'Indie flower' cursive; 
 }
