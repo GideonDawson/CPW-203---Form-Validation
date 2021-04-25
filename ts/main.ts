@@ -8,6 +8,22 @@ function main():void{
     resetErrorMessages();
     isTextPresent("first-name","First name is required");
     isTextPresent("last-name", "Last name is required"); 
+    
+    // Validate date
+    let dobBox = <HTMLInputElement> document.getElementById("dob");
+    let dob = dobBox.value; 
+    if(!isValidDate(dob)){
+        let errSpan = dobBox.nextElementSibling;
+        errSpan.innerHTML = "Invalid Format. Format should be mm/dd/yyyy";
+        //dobBox.nextElementSibling.innerHTML = "Invalid Format";
+    }
+}
+
+function isValidDate(input:string):boolean{
+    // Validating mm/dd/yyyy and m/d/yyy
+    let pattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/g
+    let result = pattern.test(input);
+    return result; 
 }
 
 /**
