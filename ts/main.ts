@@ -4,7 +4,30 @@ window.onload = function(){
 
 }
 
+function changeHeading(){
+    let heading = <HTMLElement> this; 
+    let red = Math.floor(Math.random() * 255 + 1);
+    let green = Math.floor(Math.random() * 255 + 1);
+    let blue = Math.floor(Math.random() * 255 + 1);
+    heading.style.color = "rgb(" + red + "," + green + "," + blue + ")" 
+
+}
+
 function main():void{
+
+let messageHeading = document.createElement("h2");
+messageHeading.innerText = "Processing form";
+
+let h1 = document.querySelector("h1");
+h1.insertAdjacentElement("afterend", messageHeading);
+messageHeading.setAttribute("class","message"); 
+messageHeading.onclick = changeHeading; 
+
+    setTimeout(function(){
+        messageHeading.remove();
+
+    }, 20000); 
+
     resetErrorMessages();
     isTextPresent("first-name","First name is required");
     isTextPresent("last-name", "Last name is required"); 

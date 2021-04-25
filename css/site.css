@@ -8,6 +8,9 @@ body{
     margin-right:5%; 
 }
 
+.mesage{
+    font-style:italic; 
+}
 input[type=text]{
     margin-bottom:1em; 
 }
